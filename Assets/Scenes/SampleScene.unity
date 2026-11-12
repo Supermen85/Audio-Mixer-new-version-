@@ -1508,6 +1508,7 @@ GameObject:
   m_Component:
   - component: {fileID: 711404435}
   - component: {fileID: 711404436}
+  - component: {fileID: 711404437}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -1600,6 +1601,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &711404437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 711404434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4131cd6311062d84697840d175053487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &750144652
 GameObject:
   m_ObjectHideFlags: 0
@@ -1649,6 +1662,7 @@ GameObject:
   - component: {fileID: 818763338}
   - component: {fileID: 818763337}
   - component: {fileID: 818763340}
+  - component: {fileID: 818763341}
   m_Layer: 5
   m_Name: MasterVolumeButton
   m_TagString: Untagged
@@ -1722,7 +1736,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2023055206}
         m_TargetAssemblyTypeName: Menu, Assembly-CSharp
-        m_MethodName: ToggleMasterVolue
+        m_MethodName: ToggleMasterVolume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1792,6 +1806,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ae6a6084b95ec24cae0593844dae6b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &818763341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818763334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4133fd4dd5ee9940826053985aa1837, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &969207050
@@ -2320,6 +2346,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1206327304}
   - component: {fileID: 1206327305}
+  - component: {fileID: 1206327306}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -2412,6 +2439,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1206327306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206327303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4131cd6311062d84697840d175053487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1230505037
 GameObject:
   m_ObjectHideFlags: 0
@@ -3242,6 +3281,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1911037441}
   - component: {fileID: 1911037442}
+  - component: {fileID: 1911037443}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -3334,6 +3374,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1911037443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1911037440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4131cd6311062d84697840d175053487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1923395938
 GameObject:
   m_ObjectHideFlags: 0
@@ -3513,6 +3565,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioMixerGroup: {fileID: 24300002, guid: a868a48a81377c84597b64556ad800fa, type: 2}
+  _masterVolumeToggler: {fileID: 818763341}
+  _masterVolumeChanger: {fileID: 1911037443}
+  _buttonsVolumeChanger: {fileID: 1206327306}
+  _musicVolumeChanger: {fileID: 711404437}
 --- !u!1 &2034485242
 GameObject:
   m_ObjectHideFlags: 0

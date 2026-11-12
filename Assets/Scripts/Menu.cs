@@ -5,57 +5,60 @@ public class Menu : MonoBehaviour
 {
     [SerializeField] private AudioMixerGroup _audioMixerGroup;
 
-    private bool _isMasterVolumeEnable = true;
+    [SerializeField] private MasterVolumeToggler _masterVolumeToggler;
 
-    private float _masterVolume;
-    private float _buttonsVolume;
-    private float _musicVolume;
+    [SerializeField] private VolumeChanger _masterVolumeChanger;
+    [SerializeField] private VolumeChanger _buttonsVolumeChanger;
+    [SerializeField] private VolumeChanger _musicVolumeChanger;
 
-    public void ToggleMasterVolue()
+    private void Awake()
     {
-        int volumeOFF = -80;
+        _masterVolumeToggler.SetAudioMixerGroup(_audioMixerGroup);
+        _masterVolumeChanger.SetAudioMixerGroup(_audioMixerGroup);
+        _buttonsVolumeChanger.SetAudioMixerGroup(_audioMixerGroup);
+        _musicVolumeChanger.SetAudioMixerGroup(_audioMixerGroup);
 
-        if (_isMasterVolumeEnable)
+        _masterVolumeChanger.SetGroupName("MasterVolume");
+        _buttonsVolumeChanger.SetGroupName("ButtonsVolume");
+        _musicVolumeChanger.SetGroupName("MusicVolume");
+    }
+
+    public void ToggleMasterVolume()
+    {
+        if (_masterVolumeToggler.IsEnable)
         {
-            _isMasterVolumeEnable = false;
-            _audioMixerGroup.audioMixer.SetFloat("MasterVolume", volumeOFF);
+            _masterVolumeToggler.TurnOFF();
         }
         else
         {
-            _isMasterVolumeEnable = true;
-            _audioMixerGroup.audioMixer.SetFloat("MasterVolume", _masterVolume);
-            _audioMixerGroup.audioMixer.SetFloat("ButtonsVolume", _buttonsVolume);
-            _audioMixerGroup.audioMixer.SetFloat("MusicVolume", _musicVolume);
+            _masterVolumeToggler.TurnON();
+            _masterVolumeChanger.ChangeVolume();
+            _buttonsVolumeChanger.ChangeVolume();
+            _musicVolumeChanger.ChangeVolume();
         }
     }
 
     public void ChangeMasterVolume(float volume)
     {
-        int coefficient = 20;
+        _masterVolumeChanger.SetVolumeValue(volume);
 
-        _masterVolume = Mathf.Log10(volume) * coefficient;
-        
-        if (_isMasterVolumeEnable)
-            _audioMixerGroup.audioMixer.SetFloat("MasterVolume", _masterVolume);
+        if (_masterVolumeToggler.IsEnable)
+            _masterVolumeChanger.ChangeVolume();
     }
 
     public void ChangeButtonsVolume(float volume)
     {
-        int coefficient = 20;
+        _buttonsVolumeChanger.SetVolumeValue(volume);
 
-        _buttonsVolume = Mathf.Log10(volume) * coefficient;
-       
-        if (_isMasterVolumeEnable)
-            _audioMixerGroup.audioMixer.SetFloat("ButtonsVolume", _buttonsVolume);
+        if (_masterVolumeToggler.IsEnable)
+            _buttonsVolumeChanger.ChangeVolume();
     }
 
     public void ChangeMusicVolume(float volume)
     {
-        int coefficient = 20;
+        _musicVolumeChanger.SetVolumeValue(volume);
 
-        _musicVolume = Mathf.Log10(volume) * coefficient;
-
-        if (_isMasterVolumeEnable)
-            _audioMixerGroup.audioMixer.SetFloat("MusicVolume", _musicVolume);
+        if (_masterVolumeToggler.IsEnable)
+            _musicVolumeChanger.ChangeVolume();
     }
 }
